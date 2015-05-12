@@ -2,3 +2,8 @@ tt_travel_home:
     path:     /
     defaults: { _controller: TTTravelBundle:Main:index }
     methods: [GET]
+
+tt_travel_search:
+    path:   /search
+    defaults: { _controller: TTTravelBundle:Main:search }
+    methods: [POST]
