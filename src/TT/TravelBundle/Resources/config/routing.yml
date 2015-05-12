@@ -1,0 +1,4 @@
+tt_travel_home:
+    path:     /
+    defaults: { _controller: TTTravelBundle:Main:index }
+    methods: [GET]
