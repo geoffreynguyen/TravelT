@@ -4,6 +4,7 @@ namespace TT\TravelBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use TT\TravelBundle\Entity\Train;
 use TT\TravelBundle\Form\SearchType;
 
 class MainController extends Controller
@@ -32,9 +33,10 @@ class MainController extends Controller
         return $this->render('TTTravelBundle:Main:form.html.twig', array('form'=>$form->createView()));
     }
     
-    public function commandeAction($train, Request $request){
+    public function commandeAction(Train $train, Request $request){
         $form=$this->createFormBuilder()
                     
         ;
+        return ;
     }
 }

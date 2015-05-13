@@ -2,13 +2,14 @@
 
 {% block ec_body %}
 
-        
+       
         <h3><span class="glyphicon glyphicon-chevron-right"></span>{{search.villeDepart.nom}}
             à {{search.villeArrivee.nom}}
             le {{search.dd.date}}
             
         </h3>
     </br>
+    {% if listeTrains|length > 0 %} 
             <div class="col-md-4">
                 Date :
             </div>
@@ -23,9 +24,9 @@
             </div>
     </br></br></br>
 
-    {% if listeTrains|length > 0 %}
+    
         {% for leTrain in listeTrains%}
-
+            <a href="{{path('tt_travel_commande', {'train':leTrain.id} ) }}">
             <div class="col-md-4">
                 <span class="glyphicon glyphicon-asterisk"> </span>
                  {{leTrain.dateDepart.date}}
@@ -39,6 +40,7 @@
             <div class="col-md-3">
                 {{leTrain.villeArrivee.nom}}
             </div>
+            </a>
         {% endfor %}
     {% else %}
         Désolé il n'y as pas de train qui correspond à votre recherche.
