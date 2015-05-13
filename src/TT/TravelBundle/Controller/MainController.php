@@ -26,7 +26,7 @@ class MainController extends Controller
            $listeTrains = $em->getRepository('TTTravelBundle:Train')
                             ->getListeTrains($search);
            
-           return $this->render('TTTravelBundle:Main:listeTrain.html.twig', array('listeTrains'=>$listeTrains));
+           return $this->render('TTTravelBundle:Main:listeTrain.html.twig', array('listeTrains'=>$listeTrains, 'search'=>$search));
         }
         
         return $this->render('TTTravelBundle:Main:form.html.twig', array('form'=>$form->createView()));
