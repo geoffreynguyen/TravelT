@@ -6,7 +6,7 @@ tt_travel_home:
 tt_travel_search:
     path:   /search
     defaults: { _controller: TTTravelBundle:Main:search }
-    methods: [POST]
+  
     
 tt_travel_commande:
     path:   /commande/{train}

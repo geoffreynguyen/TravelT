@@ -3,7 +3,7 @@
 {% block ec_body %}
 
        
-        <h3><span class="glyphicon glyphicon-chevron-right"></span>{{search.villeDepart.nom}}
+        <h3><span class="glyphicon glyphicon-chevron-right"></span>De {{search.villeDepart.nom}}
             à {{search.villeArrivee.nom}}
             le {{search.dd.date|date('Y-m-d')}}
             
@@ -14,15 +14,18 @@
                 <strong>Date : </strong>
     </div>
     <div class="col-md-2">
-               <strong>Numéro du train:</strong>
+               <strong>Train n°:</strong>
     </div>
 
-    <div class="col-md-3">
-               <strong>Ville de départ:</strong>
+    <div class="col-md-2">
+               <strong>Départ:</strong>
      </div>
 
-    <div class="col-md-3">
-               <strong>ville d'arrivé:</strong>
+    <div class="col-md-2">
+               <strong>Arrivée:</strong>
+    </div>
+   <div class="col-md-1">
+               <strong>Prix</strong>
     </div>
     
         {% for leTrain in listeTrains%}
@@ -35,12 +38,16 @@
                  <div class="col-md-2">
                 {{leTrain.getId()}}
                  </div>  
-                 <div class="col-md-3">
+                 <div class="col-md-2">
                 {{leTrain.villeDepart.nom}}
                  </div>                
-                 <div class="col-md-3">
+                 <div class="col-md-2">
 
                 {{leTrain.villeArrivee.nom}} 
+                 </div>
+                 <div class="col-md-2">
+
+                {{ leTrain.prix }} € 
                  </div>
            </a>
         {% endfor %}

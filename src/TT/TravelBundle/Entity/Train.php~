@@ -123,27 +123,4 @@ private $prix;
     {
         return $this->villeArrivee;
     }
-
-    /**
-     * Set prix
-     *
-     * @param integer $prix
-     * @return Train
-     */
-    public function setPrix($prix)
-    {
-        $this->prix = $prix;
-
-        return $this;
-    }
-
-    /**
-     * Get prix
-     *
-     * @return integer 
-     */
-    public function getPrix()
-    {
-        return $this->prix;
-    }
 }

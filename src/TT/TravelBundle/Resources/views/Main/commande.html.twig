@@ -5,18 +5,21 @@
 
         <h3><span class="glyphicon glyphicon-chevron-right"></span>Votre billet:</h3>
     </br>
-        <div class="col-md-4">
-            <span class="glyphicon glyphicon-asterisk"> </span>
+        <div class="col-md-6">
+            
             Heure : <strong>{{ train.dateDepart.date }}</strong>
         </div>
-                <div class="col-md-2">
+                <div class="col-md-6">
             Train n° : <strong>{{ train.id }}</strong>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6">
              Départ : <strong> {{ train.villeDepart.nom }}</strong>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6">
             Arrivée : <strong>{{ train.villeArrivee.nom }}</strong>
+        </div>
+         <div class="col-md-6">
+            Prix : <strong>{{ train.prix }} €</strong>
         </div>
     
             <div class="col-md-12">
@@ -26,6 +29,7 @@
                         {{ form_widget(form) }}
                         </br>
                 <button type="Submit" class="btn btn-danger">Réserver</button>
+                
                     {{ form_rest(form)}}
                 </form>
                 </br>
