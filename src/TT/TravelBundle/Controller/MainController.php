@@ -46,7 +46,7 @@ class MainController extends Controller
                 $em->persist($billet);
                 $em->flush();
    
-            $request->getSession()->getFlashBag()->add('info', "Votre reservation est validée");
+            $request->getSession()->getFlashBag()->add('info', "Votre réservation est validée");
              return $this->render('TTTravelBundle:Main:index.html.twig');
          }
          
