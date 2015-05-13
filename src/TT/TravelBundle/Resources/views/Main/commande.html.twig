@@ -1,29 +1,42 @@
 {% extends 'TTTravelBundle::layout.html.twig' %}
 
+{% form_theme form 'TTTravelBundle:Form:fields.html.twig' %}
 {% block ec_body %}
 
         <h3><span class="glyphicon glyphicon-chevron-right"></span>Votre billet:</h3>
     </br>
-        <div class="col-md-2">
-            <span class="glyphicon glyphicon-asterisk"> </span>Heure
+        <div class="col-md-4">
+            <span class="glyphicon glyphicon-asterisk"> </span>
+            Heure : <strong>{{ train.dateDepart.date }}</strong>
         </div>
                 <div class="col-md-2">
-            idTrain
+            Train n° : <strong>{{ train.id }}</strong>
         </div>
-        <div class="col-md-4">
-            Nom ville A
+        <div class="col-md-3">
+             Départ : <strong> {{ train.villeDepart.nom }}</strong>
         </div>
-        <div class="col-md-4">
-            Nom villaB
+        <div class="col-md-3">
+            Arrivée : <strong>{{ train.villeArrivee.nom }}</strong>
         </div>
-    </br>
-            <div class="col-md-5">
-            </div>
-            <div class="col-md-7">
-
+    
+            <div class="col-md-12">
+                </br>
+                <form action="{{ path('tt_travel_commande', {'train':train.id})}}" method="post" {{form_enctype(form)}}>
+                    
+                        {{ form_widget(form) }}
+                        </br>
                 <button type="Submit" class="btn btn-danger">Réserver</button>
+                    {{ form_rest(form)}}
+                </form>
+                </br>
             </div>
-  
-
+                     <div class="col-md-8">
+                         Envoyez votre chèque à l'adresse suivante :
+                     </div>
+                    <div class="col-md-4">
+                        17 rue Benjamin Delessert
+                        77124 Villenoy
+                    </div>
+                        
 {% endblock %}
 
