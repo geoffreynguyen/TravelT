@@ -26,8 +26,8 @@ class TrainRepository extends EntityRepository
              ->andWhere('vd = :villeD')
                 ->setParameter('villeD', $search->getVilleDepart())
                 ->andWhere('va = :villeA')
-                    ->setParameter('villeA', $search->getVilleArrivee());
-
+                    ->setParameter('villeA', $search->getVilleArrivee())
+                ->orderBy('t.dateDepart', 'ASC');
        return $query->getQuery()->getResult();
    
 

@@ -5,42 +5,44 @@
        
         <h3><span class="glyphicon glyphicon-chevron-right"></span>{{search.villeDepart.nom}}
             à {{search.villeArrivee.nom}}
-            le {{search.dd.date}}
+            le {{search.dd.date|date('Y-m-d')}}
             
         </h3>
     </br>
     {% if listeTrains|length > 0 %} 
-            <div class="col-md-4">
-                Date :
-            </div>
-                    <div class="col-md-2">
-                Numéro du train:
-                    </div>
-            <div class="col-md-3">
-                Ville de départ:
-            </div>
-            <div class="col-md-3">
-                ville d'arrivé:
-            </div>
-    </br></br></br>
+    <div class="col-md-4">
+                <strong>Date : </strong>
+    </div>
+    <div class="col-md-2">
+               <strong>Numéro du train:</strong>
+    </div>
 
+    <div class="col-md-3">
+               <strong>Ville de départ:</strong>
+     </div>
+
+    <div class="col-md-3">
+               <strong>ville d'arrivé:</strong>
+    </div>
     
         {% for leTrain in listeTrains%}
-            <a href="{{path('tt_travel_commande', {'train':leTrain.id} ) }}">
-            <div class="col-md-4">
-                <span class="glyphicon glyphicon-asterisk"> </span>
+                
+            <a class="btn btn-default" style="width:95%" href="{{path('tt_travel_commande', {'train':leTrain.id} ) }}"> 
+               <div class="col-md-4">
+                   <span class="glyphicon glyphicon-asterisk"> </span>
                  {{leTrain.dateDepart.date}}
-            </div>
-                    <div class="col-md-2">
+               </div>
+                 <div class="col-md-2">
                 {{leTrain.getId()}}
-            </div>
-            <div class="col-md-3">
+                 </div>  
+                 <div class="col-md-3">
                 {{leTrain.villeDepart.nom}}
-            </div>
-            <div class="col-md-3">
-                {{leTrain.villeArrivee.nom}}
-            </div>
-            </a>
+                 </div>                
+                 <div class="col-md-3">
+
+                {{leTrain.villeArrivee.nom}} 
+                 </div>
+           </a>
         {% endfor %}
     {% else %}
         Désolé il n'y as pas de train qui correspond à votre recherche.

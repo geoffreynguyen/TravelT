@@ -15,8 +15,8 @@ class SearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dd','datetime')
-            ->add('dr','datetime')
+            ->add('dd','date')
+            //->add('dr','date')
             ->add('villeDepart', 'entity', array(
                                                     'class' => 'TTTravelBundle:Ville',
                                                     'property' => 'nom',
