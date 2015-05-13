@@ -1,33 +1,46 @@
 {% form_theme form 'TTTravelBundle:Form:Fields.html.twig' %}
 
 <form action="{{ path('tt_travel_search')}}" method="post" {{form_enctype(form)}}>
-     
+        
             {{form_errors(form)}}
-            <div class="col-md-6">
+            <div class="col-md-1">
                         {{ form_label(form.dd) }}
                         {{ form_errors(form.dd) }}
+            </div>
+
+            <div class="col-md-5">
+
                         {{ form_widget(form.dd) }}
             </div>
-            
-             <div class="col-md-6">
+            <div class="col-md-1">
+                
                 {{ form_label(form.dr) }}
                     {{ form_errors(form.dr) }}
+            </div>
+            <div class="col-md-5">
                     {{ form_widget(form.dr) }}
-                
             </div>
-            <div class="col-md-6">
-                {{ form_label(form.depart) }}
+
+                        
+             <div class="col-md-6">
+                {{ form_label(form.villeDepart) }}
                
-                    {{ form_errors(form.depart) }}
-                    {{ form_widget(form.depart) }}
+                    {{ form_errors(form.villeDepart) }}
+                    {{ form_widget(form.villeDepart) }}
                 
             </div>
+
             <div class="col-md-6">
-                {{ form_label(form.arrivee) }}
+                {{ form_label(form.villeArrivee) }}
                 
-                    {{ form_errors(form.arrivee) }}
-                    {{ form_widget(form.arrivee) }}
+                    {{ form_errors(form.villeArrivee) }}
+                    {{ form_widget(form.villeArrivee) }}
                
             </div>
-           
+            <div class="col-md-5"></div>
+            <div class="col-md-7">
+                </br>
+            <button type="Submit" class="btn btn-danger">Rechercher</button>                   
+            </div>
+            {{ form_rest(form)}}
         </form>
