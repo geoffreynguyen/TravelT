@@ -3,20 +3,48 @@
 {% block ec_body %}
 
         
-        <h3><span class="glyphicon glyphicon-chevron-right"></span>Aller : (Destination) pour (la date)</h3>
+        <h3><span class="glyphicon glyphicon-chevron-right"></span>{{search.villeDepart.nom}}
+            à {{search.villeArrivee.nom}}
+            le {{search.dd.date}}
+            
+        </h3>
     </br>
-        <div class="col-md-2">
-            <span class="glyphicon glyphicon-asterisk"> </span>Heure
-        </div>
-                <div class="col-md-2">
-            idTrain
-        </div>
-        <div class="col-md-4">
-            Nom ville A
-        </div>
-        <div class="col-md-4">
-            Nom villaB
-        </div>
+            <div class="col-md-4">
+                Date :
+            </div>
+                    <div class="col-md-2">
+                Numéro du train:
+                    </div>
+            <div class="col-md-3">
+                Ville de départ:
+            </div>
+            <div class="col-md-3">
+                ville d'arrivé:
+            </div>
+    </br></br></br>
+
+    {% if listeTrains|length > 0 %}
+        {% for leTrain in listeTrains%}
+
+            <div class="col-md-4">
+                <span class="glyphicon glyphicon-asterisk"> </span>
+                 {{leTrain.dateDepart.date}}
+            </div>
+                    <div class="col-md-2">
+                {{leTrain.getId()}}
+            </div>
+            <div class="col-md-3">
+                {{leTrain.villeDepart.nom}}
+            </div>
+            <div class="col-md-3">
+                {{leTrain.villeArrivee.nom}}
+            </div>
+        {% endfor %}
+    {% else %}
+        Désolé il n'y as pas de train qui correspond à votre recherche.
+        
+    {% endif %}
+    
 
 
 <!--
