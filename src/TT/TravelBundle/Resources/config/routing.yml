@@ -8,4 +8,8 @@ tt_travel_search:
     defaults: { _controller: TTTravelBundle:Main:search }
     methods: [POST]
     
+tt_travel_commande:
+    path:   /commande/{train}
+    defaults: { _controller: TTTravelBundle:Main:commande }
+    methods: [GET,POST]
     

@@ -24,11 +24,17 @@ class MainController extends Controller
            $search=$form->getData();
            $em = $this->getDoctrine()->getManager();
            $listeTrains = $em->getRepository('TTTravelBundle:Train')
-                            ->getListeTrains($search);
+                             ->getListeTrains($search);
            
            return $this->render('TTTravelBundle:Main:listeTrain.html.twig', array('listeTrains'=>$listeTrains));
         }
         
         return $this->render('TTTravelBundle:Main:form.html.twig', array('form'=>$form->createView()));
+    }
+    
+    public function commandeAction($train, Request $request){
+        $form=$this->createFormBuilder()
+                    
+        ;
     }
 }

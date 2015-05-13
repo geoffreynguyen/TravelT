@@ -1,7 +1,10 @@
 {% extends 'TTTravelBundle::layout.html.twig' %}
 
 {% block ec_body %}
-    <h1>Réservez votre  Train  <span class="glyphicon glyphicon-briefcase"> </span></h1>
-    </br>    
+    <div class="col-md-12" style="text-align: center;">
+        <h1>Réservez votre  Train  <span class="glyphicon glyphicon-briefcase"> </span></h1>
+    </div>
+    </br>
+        
     {{ render(controller("TTTravelBundle:Main:search")) }}
 {% endblock %}
