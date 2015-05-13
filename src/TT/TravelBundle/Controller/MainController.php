@@ -4,6 +4,7 @@ namespace TT\TravelBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use TT\TravelBundle\Form\SearchType;
 
 class MainController extends Controller
 {
@@ -14,28 +15,18 @@ class MainController extends Controller
     
     public function searchAction(Request $request)
     {
-        $form=$this->createFormBuilder()
-                ->add('dd', 'date', array('input'=>'datetime',
-                                            'widget'=>'choice'))
-                
-                ->add('dr', 'date', array('input'=>'datetime',
-                                            'widget'=>'choice'))
-                
-                ->add('depart', 'entity', array(
-                                                    'class' => 'TTTravelBundle:Ville',
-                                                    'property' => 'nom',
-                                                    'multiple'=> false,
-                                                    'required'=>true))
-                ->add('arrivee', 'entity', array(
-                                                    'class' => 'TTTravelBundle:Ville',
-                                                    'property' => 'nom',
-                                                    'multiple'=> false,
-                                                    'required'=>true))
-                ->getForm();
         
-        if($request->getMethod() == 'POST'){
-            var_dump('test');
-            die;
+        $form=$this->createForm(new SearchType());
+               
+        
+        if($form->handleRequest($request)->isValid()){
+           
+           $search=$form->getData();
+           $em = $this->getDoctrine()->getManager();
+           $listeTrains = $em->getRepository('TTTravelBundle:Train')
+                            ->getListeTrains($search);
+           
+           return $this->render('TTTravelBundle:Main:listeTrain.html.twig', array('listeTrains'=>$listeTrains));
         }
         
         return $this->render('TTTravelBundle:Main:form.html.twig', array('form'=>$form->createView()));
